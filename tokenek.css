@@ -1,0 +1,96 @@
+/* ---------------------------------------------------------------------------
+   LLM-kurzus · arculati tokenek
+   ELTE TáTK, 2026 ősz
+
+   Ez az egyetlen hely, ahol szín és méret SZÁM-ként szerepel. Minden más
+   fájl (kurzus.css, artifactok, jövőbeli felületek) csak hivatkozik rájuk.
+   Ha az arculatot cserélni akarod, ezt a fájlt írod át, nem a többit.
+
+   A névadás magyar, mert a kurzus magyar. A háromféle jelentéstani szín
+   (állítás / csapda / mérés) a kurzus gondolatmenete: valaki állít valamit,
+   van benne egy csapda, és van, amit meg lehet mérni.
+--------------------------------------------------------------------------- */
+
+:root {
+  /* --- Felület és tinta ------------------------------------------------- */
+  --papir:          #FBFAF7;   /* alap háttér, meleg törtfehér, nem vakít */
+  --papir-melyebb:  #F1EEE7;   /* kiemelt doboz, táblázat fejléce */
+  --tinta:          #17191C;   /* főszöveg */
+  --tinta-halvany:  #5E626A;   /* metaadat, forrás, alcím */
+  --vonal:          #DBD6CC;   /* hajszálvonal, keret */
+
+  /* --- Jelentéstani színek ---------------------------------------------- */
+  /* állítás — amit a világ állít: lelkes, csábító, még nem ellenőrzött */
+  --allitas:         #9A6B10;
+  --allitas-halvany: #F6EEDC;
+  /* csapda — ami elromlik, ha nem nézel oda */
+  --csapda:          #96360F;
+  --csapda-halvany:  #F7E7DF;
+  /* mérés — amit számmal alá lehet támasztani; ez a kurzus alaphangja */
+  --meres:           #0E5560;
+  --meres-halvany:   #E2EDEF;
+
+  /* --- Tipográfia ------------------------------------------------------- */
+  --betu-proza:  "Source Serif 4", Charter, Georgia, serif;
+  --betu-jelzes: "Source Sans 3", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --betu-kod:    "Source Code Pro", ui-monospace, Menlo, monospace;
+
+  --meret-alap:   30px;   /* diaszöveg alapmérete 1280×720-as vásznon */
+  --meret-nagy:   1.35rem;
+  --meret-kicsi:  0.78rem;
+  --meret-apro:   0.64rem;
+
+  --sorkoz:       1.42;
+  --sorkoz-cim:   1.12;
+
+  /* --- Ritmus ----------------------------------------------------------- */
+  --koz-1: 0.32rem;
+  --koz-2: 0.64rem;
+  --koz-3: 1.05rem;
+  --koz-4: 1.7rem;
+  --koz-5: 2.8rem;
+
+  --keret: 3px;           /* a bal oldali jelölősáv vastagsága */
+  --lekerekites: 3px;     /* alig — ez nem termékfelület, ez nyomtatvány */
+}
+
+/* --- Sötét változat -------------------------------------------------------
+   Vetítéshez sötétített teremben, vagy egy-egy kiemelt diához: `.sotet`.
+   Csak a felületi tokenek fordulnak meg, a jelentéstani színek világosodnak,
+   hogy a kontraszt megmaradjon.
+-------------------------------------------------------------------------- */
+.sotet, :root[data-arculat="sotet"] {
+  --papir:          #14161A;
+  --papir-melyebb:  #1E2127;
+  --tinta:          #F2F0EB;
+  --tinta-halvany:  #A2A7B0;
+  --vonal:          #474E59;
+
+  --allitas:         #E0B45A;
+  --allitas-halvany: #2A2418;
+  --csapda:          #E88355;
+  --csapda-halvany:  #2C1C14;
+  --meres:           #6FC4D2;
+  --meres-halvany:   #14282D;
+}
+
+/* Böngészős felületen (honlap, artifact) a gép beállítása is számítson, még
+   mielőtt bármilyen szkript lefutna — különben a sötétre állított látogató
+   először a világos lapot villantja fel. A `data-arculat="vilagos"` explicit
+   választás felülírja. Vetítésnél ennek nincs hatása: ott az osztály dönt. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-arculat="vilagos"]):not([data-arculat="sotet"]) {
+    --papir:          #14161A;
+    --papir-melyebb:  #1E2127;
+    --tinta:          #F2F0EB;
+    --tinta-halvany:  #A2A7B0;
+    --vonal:          #474E59;
+
+    --allitas:         #E0B45A;
+    --allitas-halvany: #2A2418;
+    --csapda:          #E88355;
+    --csapda-halvany:  #2C1C14;
+    --meres:           #6FC4D2;
+    --meres-halvany:   #14282D;
+  }
+}

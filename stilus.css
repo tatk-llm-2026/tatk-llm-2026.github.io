@@ -1,0 +1,123 @@
+/* ---------------------------------------------------------------------------
+   LLM-kurzus · nyilvános oldal
+   tatk-llm-2026 · ELTE TáTK
+
+   Címlap: egy képernyő, görgetés nélkül. Papírfelület, nagy cím, alatta két
+   mező. Szín és méret SZÁM-ként csak a tokenek.css-ben szerepel.
+
+   JavaScript nincs.
+--------------------------------------------------------------------------- */
+
+:root {
+  --felulet: var(--papir);
+  --festek:  var(--tinta);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; color-scheme: light; }
+@media (prefers-color-scheme: dark) { html { color-scheme: dark; } }
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  padding: clamp(2rem, 7vw, 5.5rem) clamp(1.5rem, 7vw, 6rem);
+  background: var(--felulet);
+  color: var(--festek);
+  font-family: var(--betu-proza);
+  line-height: 1.5;
+  font-variant-numeric: oldstyle-nums;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.lap { width: 100%; max-width: 68rem; margin-inline: auto; }
+
+/* --- A cím viszi a lapot -------------------------------------------------- */
+h1 {
+  margin: 0;
+  max-width: 24ch;
+  text-wrap: balance;
+  font-size: clamp(2.2rem, 5.4vw, 4.05rem);
+  font-weight: 600;
+  line-height: 0.99;
+  letter-spacing: -0.024em;
+}
+
+/* --- Alsó mező: balra a mondat és az ajtó, jobbra a fejadatok ------------- */
+.mezo {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+  margin-top: clamp(2.2rem, 6vw, 4.2rem);
+  padding-top: clamp(1.6rem, 4vw, 2.6rem);
+  border-top: 1px solid var(--tinta-halvany);
+}
+
+.mit {
+  margin: 0;
+  max-width: 30ch;
+  font-size: clamp(1.06rem, 0.98rem + 0.35vw, 1.28rem);
+  line-height: 1.48;
+}
+
+.ajto { margin: clamp(1.6rem, 4vw, 2.4rem) 0 0; }
+.ajto a {
+  display: inline-block;
+  font-family: var(--betu-kod);
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+  color: var(--meres);
+  text-decoration: none;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid color-mix(in srgb, var(--meres) 40%, transparent);
+  transition: border-color 0.18s ease-out;
+}
+.ajto a:hover { border-bottom-color: var(--meres); }
+.ajto a:focus-visible {
+  outline: 2px solid var(--meres);
+  outline-offset: 4px;
+  border-radius: var(--lekerekites);
+}
+
+/* --- Fejadatok ------------------------------------------------------------ */
+.adatok { margin: 0; }
+.adatok > div {
+  display: grid;
+  grid-template-columns: 6.9rem minmax(0, 1fr);
+  gap: var(--koz-2);
+  align-items: baseline;
+  padding: 0.52em 0;
+  border-bottom: 1px solid var(--vonal);
+}
+.adatok > div:first-child { padding-top: 0; }
+.adatok dt {
+  font-family: var(--betu-jelzes);
+  font-size: 0.685rem;
+  font-weight: 600;
+  letter-spacing: 0.145em;
+  text-transform: uppercase;
+  color: var(--tinta-halvany);
+}
+.adatok dd {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+.adatok b { font-weight: 650; }
+
+::selection { background: var(--meres); color: var(--papir); }
+
+/* --- Szűkebb képernyők ---------------------------------------------------- */
+@media (max-width: 56rem) {
+  body { align-content: start; }
+  .mezo { grid-template-columns: 1fr; gap: clamp(1.8rem, 6vw, 2.6rem); }
+  h1 { max-width: 16ch; }
+}
+
+@media (max-width: 26rem) {
+  .adatok > div { grid-template-columns: 1fr; gap: 0; padding: 0.5em 0; }
+}

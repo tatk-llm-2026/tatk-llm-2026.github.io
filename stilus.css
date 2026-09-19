@@ -121,3 +121,28 @@ h1 {
 @media (max-width: 26rem) {
   .adatok > div { grid-template-columns: 1fr; gap: 0; padding: 0.5em 0; }
 }
+
+/* --- Résztvevőknek: a privát repóba vezető linkek -------------------------- */
+.resztvevoknek {
+  list-style: none;
+  margin: clamp(1rem, 2.5vw, 1.4rem) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em 1.4em;
+}
+.resztvevoknek a {
+  font-family: var(--betu-jelzes);
+  font-size: var(--meret-kicsi);
+  color: var(--meres);
+  text-decoration: none;
+  border-bottom: 1px solid var(--vonal);
+  padding-bottom: 0.1em;
+}
+.resztvevoknek a:hover { border-bottom-color: var(--meres); }
+.megjegyzes {
+  font-family: var(--betu-jelzes);
+  font-size: var(--meret-apro);
+  color: var(--tinta-halvany);
+  margin: 0.7em 0 0;
+}

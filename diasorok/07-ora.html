@@ -1016,6 +1016,10 @@ Dávid naplója · ugyanaz a nap
 <td>Bevásárlólista</td>
 <td>Sajtó: a mentés</td>
 </tr>
+<tr>
+<td></td>
+<td>Szél: ECMWF-modell (Open-Meteo)</td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1080,6 +1084,16 @@ Dávid naplója · ugyanaz a nap
 </tbody>
 </table>
 </section>
+<section id="azóta-egy-új-forrás-a-szél" class="slide level2 felul">
+<h2 class="felul">Azóta egy új forrás: <em>a szél</em></h2>
+<p>Minden naplósorhoz tartozik hely és idő, ezért lekérhető, mit mondott ott és akkor az időjárási modell.</p>
+<ul>
+<li><strong>Forrás:</strong> ECMWF-modell, az Open-Meteón keresztül, a térképen szélrétegként</li>
+<li><strong>Összevetés:</strong> okt. 30., 03:00 · a napló 4 csomó ÉNy szelet ír, a modell 4,5 csomó É-t</li>
+<li>A modell <strong>független</strong> a legénységtől: ahol egyezik a naplóval, az megerősítés</li>
+</ul>
+<p><span class="forras">malaga-radazul.web.app · jelmagyarázat: „szél, ECMWF-modell”</span></p>
+</section>
 <section id="a-gazdagságot-a-kapcsolatok-adják" class="slide level2 meres">
 <h2 class="meres">A gazdagságot <em>a kapcsolatok</em> adják</h2>
 <p><span class="kiemel">Ha két <em>független</em> forrás egyezik, az megerősítés. Ha eltérnek, egy harmadik dönt.</span></p>
@@ -1112,7 +1126,7 @@ Dávid naplója · ugyanaz a nap
 <section id="hely-idő-egy-nyilvános-api-új-adat" class="slide level2 allitas">
 <h2 class="allitas">Hely + idő + egy nyilvános API = <em>új adat</em></h2>
 <blockquote>
-<p>A fotó nem mondta meg, milyen idő volt. A koordináta és az időbélyeg viszont elég ahhoz, hogy az OpenWeather megmondja: honnan fújt a szél, és milyen erősen.</p>
+<p>A fotó nem mondta meg, milyen idő volt. A koordináta és az időbélyeg viszont elég ahhoz, hogy egy időjárás-API megmondja: honnan fújt a szél, és milyen erősen.</p>
 </blockquote>
 <ul>
 <li>Ugyanaz a kötés, mint a hajónaplónál: <strong>idő és hely</strong></li>
